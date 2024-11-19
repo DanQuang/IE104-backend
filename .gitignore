@@ -1,2 +1,37 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+*.swo
+*.bak
+
+# Django
+db.sqlite3
+*.log
+
+# Environment
 .env
-venv
+venv/
+ENV/
+.venv/
+env/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Migrations
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
