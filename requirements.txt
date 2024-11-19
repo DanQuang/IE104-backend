@@ -3,13 +3,14 @@ langchain_community==0.3.0
 qdrant_client==1.11.2
 langchain-together==0.2.0
 langchain-qdrant==0.1.4
-Django==5.1.1
+Django
 psycopg2-binary==2.9.9
 daphne==4.1.2
-djangorestframework==3.15.2
 djoser==2.2.3
 django_cors_headers==4.4.0
 channels==4.1.0
 whitenoise==6.7.0
 channels_redis==4.2.0
 sentence_transformers==3.1.1
+djangorestframework
+ djangorestframework-simplejwt
