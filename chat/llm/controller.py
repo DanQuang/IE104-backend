@@ -1,5 +1,5 @@
 from langchain_together import ChatTogether
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings, HuggingFaceInferenceAPIEmbeddings
 from langchain_community.vectorstores import Qdrant
 from qdrant_client import QdrantClient
 from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate, PromptTemplate
@@ -27,7 +27,8 @@ class RAG:
         )
         
         # Initialize embeddings
-        self.embeddings = HuggingFaceEmbeddings(model_name=os.getenv('EMBEDDINGS_MODEL_NAME'))
+        self.embeddings = HuggingFaceInferenceAPIEmbeddings(api_key = os.getenv('HUGGINGFACE_API_KEY'),
+                                                            model_name = os.getenv('EMBEDDINGS_MODEL_NAME'))
         
         # Initialize vector store
         self.vector_store = Qdrant(
