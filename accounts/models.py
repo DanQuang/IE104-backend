@@ -71,3 +71,32 @@ class User(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+# CreditAccount Model
+class CreditAccount(models.Model):
+    account_number = models.CharField(max_length=255, unique=True)
+    account_name = models.CharField(max_length=255)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='credit_accounts')
+
+    def __str__(self):
+        return f"{self.account_name} ({self.account_number})"
+
+# Service Model
+class Service(models.Model):
+    description = models.TextField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    discount = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+
+    def __str__(self):
+        return f"{self.description} - ${self.price}"
+
+# Tier Model
+class Tier(models.Model):
+    current_tier = models.CharField(max_length=255)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tiers')
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='tiers')
+    start_day = models.DateField()
+    end_day = models.DateField()
+
+    def __str__(self):
+        return f"{self.current_tier} for {self.user.email}"
