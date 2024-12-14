@@ -163,7 +163,7 @@ CHANNEL_LAYERS = {
 }
 
 # Email configuration
-EMAIL_BACKEND = "django.accounts.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
@@ -191,8 +191,8 @@ DJOSER = {
     'LOGIN_FIELD': 'email',
     'USER_CREATE_PASSWORD_RETYPE':True,
     'ACTIVATION_URL': 'account/activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
-    'SEND_CONFIRMATION_EMAIL':True,
+    'SEND_ACTIVATION_EMAIL': False,
+    'SEND_CONFIRMATION_EMAIL':False,
     'PASSWORD_CHANGED_EMAIL_CONFIRMATION':True,
     'PASSWORD_RESET_CONFIRM_URL': 'account/reset-password-confirm/{uid}/{token}',
     'SET_PASSWORD_RETYPE': True,
