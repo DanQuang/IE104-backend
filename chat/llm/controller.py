@@ -88,7 +88,7 @@ class RAG:
             llm=self.llm,
             chain_type="stuff", 
             retriever=self.retriever,
-            return_source_documents=False,
+            return_source_documents=True,
             chain_type_kwargs={
                 "prompt": self.chat_prompt
             }
